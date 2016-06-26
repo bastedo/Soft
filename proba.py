@@ -115,7 +115,7 @@ class simpleapp_tk(Tkinter.Tk):
         w.grid(column=0,row=1,columnspan=2, rowspan=2,sticky='EW')
         positions, figures = chessboard.main(filepath)
         self.setup_game(positions, figures)
-        
+        nodeA = node.Node(game_board, 0, 1, "", 1, 1, None, 3)
         #print positions
         #print figures
             

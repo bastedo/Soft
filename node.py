@@ -468,7 +468,7 @@ class Node:
         return game_board
         
     def generate_nodes(self):
-        if self.move_number<3:
+        if self.move_number<self.max_move_number:
             for i in range(len(self.game_board)):
                if self.game_board[i] != None and self.game_board[i][1] == str(self.turn) :
                     self.generate_moves (i)
@@ -479,7 +479,7 @@ class Node:
                         for j in range(len(self.moves)):
                             #print (self.moves[j])
                             #print(self.game_coordinationX[self.moves[j]/8])
-                            self.nodes.append(Node(self.move_piece(self.moves[j],i), self.move_number+1, 1+self.turn%2, str(self.name)+str(self.game_board[i])+"->"+str(self.game_coordinationX[self.moves[j]%8])+str(self.game_coordinationY[self.moves[j]/8])+"---", self.wcastle, self.bcastle, self.en_passent))
+                            self.nodes.append(Node(self.move_piece(self.moves[j],i), self.move_number+1, 1+self.turn%2, str(self.name)+str(self.game_board[i])+"->"+str(self.game_coordinationX[self.moves[j]%8])+str(self.game_coordinationY[self.moves[j]/8])+"---", self.wcastle, self.bcastle, self.en_passent, self.max_move_number))
                     if len(self.captures) != 0:
                         #print(self.game_board[i])
                         #print (self.moves)
@@ -489,7 +489,7 @@ class Node:
                         for k in range(len(self.captures)):
                             #print (self.captures[k])
                             #print(self.move_piece(self.captures[k],i))
-                            self.nodes.append(Node(self.move_piece(self.captures[k],i), self.move_number+1, 1+self.turn%2, str(self.name)+str(self.game_board[i])+"->"+str(self.game_coordinationX[self.captures[k]%8])+str(self.game_coordinationY[self.captures[k]/8])+"---", self.wcastle, self.bcastle, self.en_passent))
+                            self.nodes.append(Node(self.move_piece(self.captures[k],i), self.move_number+1, 1+self.turn%2, str(self.name)+str(self.game_board[i])+"->"+str(self.game_coordinationX[self.captures[k]%8])+str(self.game_coordinationY[self.captures[k]/8])+"---", self.wcastle, self.bcastle, self.en_passent,self.max_move_number ))
                             
                         #str(self.game_coordinationX[self.moves[j]/8])+str(self.game_coordinationY[self.moves[j]%8])+
                 
