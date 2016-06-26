@@ -72,7 +72,7 @@ class simpleapp_tk(Tkinter.Tk):
                                 command=self.OnButtonClick1)
         button.grid(column=1,row=0)        
         
-        button = Tkinter.Button(self,text=u"Click me !",
+        button = Tkinter.Button(self,text=u"Load chessboard ",
                                 command=self.OnButtonClick2)
         button.grid(column=2,row=0)
         
@@ -84,6 +84,7 @@ class simpleapp_tk(Tkinter.Tk):
         label = Tkinter.Label(self,textvariable=self.labelVariable,
                               anchor="w",fg="white",bg="blue")
         label.grid(column=0,row=1,columnspan=2,sticky='EW')
+        
         self.labelVariable.set(u"/home/student/Desktop/primer1/puzzz2.jpg")
 
         self.grid_columnconfigure(0,weight=1)
@@ -117,22 +118,20 @@ class simpleapp_tk(Tkinter.Tk):
         
         #print positions
         #print figures
-        print game_board
-        
-        nodeA = node.Node(game_board, 0, 1, "", 1, 1, None)
-        #nodeA.generate_nodes()
-        self.update()
-        self.geometry(self.geometry())       
+            
        # display_image(img)
 
     
     def OnButtonClick3(self):
-        print game_board[48]
-        select_piece(48)
-        print moves
-        print captures
+
         self.update()
-        self.geometry(self.geometry())       
+        self.geometry(self.geometry()) 
+        print game_board
+        
+        nodeA = node.Node(game_board, 0, 1, "", 1, 1, None, 3)
+        #nodeA.generate_nodes()
+        self.update()
+        self.geometry(self.geometry())   
         
     def OnPressEnter(self,event):
         self.labelVariable.set( self.entryVariable.get()+" (You pressed ENTER)" )

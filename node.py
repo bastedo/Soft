@@ -5,8 +5,9 @@ Created on Wed Jun  1 12:34:54 2016
 @author: student
 """
 
+
 class Node:
-    def __init__(self,game_board, move_number, turn, name, wcastle, bcastle, en_passent ):
+    def __init__(self,game_board, move_number, turn, name, wcastle, bcastle, en_passent, max_move_number ):
         self.game_coordinationX = ["A", "B", "C", "D", "E", "F", "G", "H"]
         self.game_coordinationY = ["1", "2", "3", "4", "5", "6", "7", "8"]
         self.name = name
@@ -19,9 +20,7 @@ class Node:
         self.moves = []
         self.captures = []
         self.nodes = []
-        #print(self.name)
-        #print(self.turn)
-        #print(self.game_board)
+        self.max_move_number = max_move_number
         
         
         if self.is_checkmated():
